@@ -1,18 +1,17 @@
 {% extends "skeleton/_body.html" %}
 
 {% block content_body %}
-
 <div id="post-content">
-	{% filter typogrify %}
+    {% filter typogrify %}
 
-	{% markdown %}
+    {% markdown %}
 
-	{% block article %}
-	{% endblock %}
-		
-	{% endmarkdown %}
+    {% block article %}
+    {% endblock %}
+        
+    {% endmarkdown %}
 
-	{% endfilter %}
+    {% endfilter %}
 </div>
 
 {% endblock %}
@@ -21,11 +20,9 @@
 
 <div id="content-header">
     <h1>{{ page.title }}</h1>
-    <span class="post-date">{{ page.created|date:"D d M Y"}}</span>
+    {% if page.auther != none %} 
+    <h3>{{ page.author }}</h3>
+    {% endif %}
 </div>
 
-{% endblock %}
-
-{% block context_nav %}
-{% include "skeleton/_context_nav.html" %}
 {% endblock %}

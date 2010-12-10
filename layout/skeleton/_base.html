@@ -5,60 +5,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-	<head>
+        <title>
+            {% block title %}
+                {{page.title|safe }} / {{site.name}}
+            {% endblock %}
+        </title>
 
-		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+        {% block css %}
 
-		<title>
-			{% block title %}
-			{{site.name}} : {{page.module.name}} : {{page.title}}
-			{% endblock %}
-		</title>
+        <link rel="stylesheet" href="{{site.url}}/media/css/aal.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="{{site.url}}/media/css/portfolio.css" type="text/css" media="screen" charset="utf-8">
 
-		{% block feeds %}
+        {% block extra_css %}
+        {% endblock %}
 
-		<link href="{{site.url}}/blog/atom.xml" rel="alternate" title="{{site.name}}" type="application/atom+xml"/>
+        {% endblock %}
 
-		{% endblock %}
+        {% block js %}
 
-		{% block css %}
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script src="{{site.url}}/media/js/portfolio.js"></script>
+        {% block extra_js %}
+        {% endblock %}
 
-		<link rel="stylesheet" href="{{site.url}}/media/css/base.css" type="text/css" media="screen" charset="utf-8">
+        {% endblock %}
 
-		{% block extra_css %}
-		{% endblock %}
-		
-		{% endblock %}
-		
-		{% block js %}
+    </head>
+    {% filter typogrify %}
+    <body>
+        <div class="wrap">
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+            <div class="top group">
+                <header>
+                <h2><a href="{{site.url}}">Sam Jacoby</a></h2>
+                </header>
 
-		{% block extra_js %}
-		{% endblock %}
-		
-		{% endblock %}
+                 <nav>
+                 <h2><a href="{{site.url}}/printing/">Printing</a>,
+                <a href="{{site.url}}/building/">Building</a>, & 
+                <a href="{{site.url}}/computers/">Computers</a>
+                </h2>
+                </nav>
+            </div>
 
-	</head>
+            <div class="content">
+            {% with page.node.ancestors|last as parent_node %}                   
+                {% with parent_node.url as parent_url %}                         
+                    {% block content %}{% endblock %}                            
+                {% endwith %}                                                    
+            {% endwith %}          
+            </div>  
 
-	<body>
+            <footer>
+            <h4>sam@shackmanpress.com</h4>
+            <h4>84 prescott st. Apt. 1</h4>
+            </footer>
 
-		<div id="site">	
-
-			{% include "skeleton/_header.html" %}
-
-			{% block content %}{% endblock %}
-
-			{% include "skeleton/_footer.html" %}
-
-		</div>
-
-	</body>
-
+        </div>
+    </body>
+    {% endfilter %}
 </html>
 
 {% endblock %}

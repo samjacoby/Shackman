@@ -2,8 +2,8 @@ from fabric.api import *
 import os
 import fabric.contrib.project as project
 
-PROD = 'portfolio'
-DEST_PATH = '/var/www/portfolio/'
+PROD = 'shackman@shackmanpress.com'
+DEST_PATH = '/home/shackman/www/portfolio/'
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 DEPLOY_PATH = os.path.join(ROOT_PATH, 'deploy')
 
@@ -33,6 +33,7 @@ def publish():
     project.rsync_project(
         remote_dir=DEST_PATH,
         local_dir=DEPLOY_PATH.rstrip('/') + '/',
+        exclude='.htaccess',
         delete=True
     )
 
