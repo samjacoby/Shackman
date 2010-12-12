@@ -14,7 +14,7 @@
 
         <title>
             {% block title %}
-                {{page.title|safe }} / {{site.name}}
+                {{ page.title|safe }} / {{site.name}}
             {% endblock %}
         </title>
 
@@ -44,13 +44,13 @@
 
             <div class="top group">
                 <header>
-                <h2><a href="{{site.url}}">Sam Jacoby</a></h2>
+                <h2><a href="{{ site.url }}">Samuel Jacoby</a></h2>
                 </header>
 
                  <nav>
-                 <h2><a href="{{site.url}}/printing/">Printing</a>,
-                <a href="{{site.url}}/building/">Building</a>, & 
-                <a href="{{site.url}}/computers/">Computers</a>
+                 <h2><a href="{{ site.url }}/printing/">Printing</a>,
+                <a href="{{ site.url }}/building/">Building</a>, & 
+                <a href="{{ site.url }}/computers/">Computers</a>
                 </h2>
                 </nav>
             </div>
@@ -65,7 +65,7 @@
 
             <footer>
             <h4>sam@shackmanpress.com</h4>
-            <h4>84 prescott st. Apt. 1</h4>
+            <h4>84 prescott st. Apt. 1<br />Cambridge, MA 02138</h4>
             </footer>
 
         </div>

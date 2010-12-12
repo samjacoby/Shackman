@@ -96,15 +96,6 @@ body {
                 }
         }
 
-        .post {
-            width: @width-body;
-            .padding-side;
-        
-            p {
-                margin: 0;
-            }
-    
-        }
 
         .column {
             width: (@width-body + 2 * @standard-spacing) / 2 - 1; 
@@ -158,7 +149,6 @@ body {
             .padding-side;
             width: @width-body;
             p {
-                margin: 0;
             }
         }
 
@@ -209,4 +199,11 @@ body {
         }
     }
 }
-
+.gallery img {                                                                   
+    background: none;                                                            
+    padding: 0;                                                                  
+    border: 1px solid #CCC;
+    display: inline;                                                             
+    margin-bottom: 25px;                                                         
+    margin-right: 25px;                                                          
+}                  

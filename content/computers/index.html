@@ -1,29 +1,5 @@
-{% extends "skeleton/_base.html" %}                                                  
+{% extends "_splash.html" %}
 
-{% block content %}                                                                  
-    <div class="section-listing">
-        <div class="column" id="first">
-        <ol class="group">
-            <li>
-                <span class="marked_link"><a href="about/">About</a></span>
-            </li>
-            <li>
-                <span class="marked_link"><a href="cv/">CV</a></span>
-            </li>
-            {% recent_posts projects 10 page.node %}
-            {%for p in projects %}
-            <li class="{% for c in p.categories %}{{ c }}{% endfor %}">
-                <div class="title"><a href='{{ p.url }}'>{{ p.title }}</a></div>
-                <div class="index"><a href='{{ p.url }}'>{{ forloop.counter }}</a></div>
-            </li>                           
-            {% if forloop.counter == 4 %}
-            </ol>            
-            </div>
-            <div class="column">
-            <ol class="group">        
-                {% endif %}
-            {%endfor%}
-        </ol>
-        </div>
-    </div>
-{% endblock %}          
+{%hyde
+    title: Computers
+%}

@@ -1,6 +1,7 @@
-import os
+import os, sys
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
+sys.path = [ROOT_PATH] + sys.path
 
 #Directories
 LAYOUT_DIR = os.path.join(ROOT_PATH, 'layout')
@@ -63,14 +64,14 @@ MEDIA_PROCESSORS = {
         '.less':('hydeengine.media_processors.TemplateProcessor',
                 'hydeengine.media_processors.LessCSS',
                 'hydeengine.media_processors.YUICompressor',),                
-        '.hss':(
-                'hydeengine.media_processors.TemplateProcessor',
-                'hydeengine.media_processors.HSS',
-                'hydeengine.media_processors.YUICompressor',),
         '.js':(
                 'hydeengine.media_processors.TemplateProcessor',
                 'hydeengine.media_processors.YUICompressor',)
-    } 
+    }, 
+    'images/':{
+        '.jpg':('hydeengine.media_processors.ImageResize',),
+        '.png':('hydeengine.media_processors.ImageResize',)
+        }
 }
 
 CONTENT_PROCESSORS = {
@@ -130,6 +131,11 @@ CLOSURE_COMPRILER = None
 #HSS_PATH = "./lib/hss-1.0-osx"
 HSS_PATH = None # if you don't want to use HSS
 
+
+IMAGE_MAX_WIDTH = 540                                                     
+IMAGE_MAX_HEIGHT = 1000                                                           
+#THUMBNAIL_FILENAME_POSTFIX = '-thumb'   
+
 #Django settings
 
 TEMPLATE_DIRS = (LAYOUT_DIR, CONTENT_DIR, TMP_DIR, MEDIA_DIR)
@@ -137,4 +143,5 @@ TEMPLATE_DIRS = (LAYOUT_DIR, CONTENT_DIR, TMP_DIR, MEDIA_DIR)
 INSTALLED_APPS = (
     'hydeengine',
     'django.contrib.webdesign',
+#    'extensions'
 )

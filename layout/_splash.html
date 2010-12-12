@@ -5,12 +5,12 @@
         <div class="column" id="first">
         <ol class="group">
             <li>
-                <span class="marked_link"><a href="about/">About</a></span>
+            <span class="marked_link"><a href="{{ site.url }}/about/">About</a></span>
             </li>
             <li>
-                <span class="marked_link"><a href="cv/">CV</a></span>
+            <span class="marked_link"><a href="{{ site.url }}/cv/">CV</a></span>
             </li>
-            {% recent_posts projects 10 %}
+            {% recent_posts projects 10 page.node%}
             {%for p in projects %}
             <li class="{% for c in p.categories %}{{ c }}{% endfor %}">
                 <div class="title"><a href='{{ p.url }}'>{{ p.title }}</a></div>
