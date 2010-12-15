@@ -8,13 +8,13 @@
             <span class="marked_link"><a href="{{ site.url }}/about/">About</a></span>
             </li>
             <li>
-            <span class="marked_link"><a href="{{ site.url }}/cv/">CV</a></span>
+            <span class="marked_link"><a href="{{ site.url }}/media/pdf/sjacoby-cv.pdf">CV</a></span>
             </li>
             {% recent_posts projects 10 page.node%}
             {%for p in projects %}
             <li class="{% for c in p.categories %}{{ c }}{% endfor %}">
                 <div class="title"><a href='{{ p.url }}'>{{ p.title }}</a></div>
-                <div class="index"><a href='{{ p.url }}'>{{ forloop.counter }}</a></div>
+                {% comment %}                <div class="index"><a href='{{ p.url }}'>{{ forloop.counter }}</a></div> {% endcomment %}
             </li>                           
             {% if forloop.counter == 4 %}
             </ol>            

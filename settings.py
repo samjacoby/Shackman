@@ -134,6 +134,8 @@ HSS_PATH = None # if you don't want to use HSS
 
 IMAGE_MAX_WIDTH = 540                                                     
 IMAGE_MAX_HEIGHT = 1000                                                           
+IMAGE_JPEG_QUALITY = 80
+
 #THUMBNAIL_FILENAME_POSTFIX = '-thumb'   
 
 #Django settings

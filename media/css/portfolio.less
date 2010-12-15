@@ -1,11 +1,29 @@
-@font-special: 'Molengo', arial, serif;
+//@font-special: 'Molengo', arial, sans-serif;
+//@font-special: 'NobileRegular', Arial, sans-serif;                                                               
+@font-special: 'CantarellRegular', Arial, sans-serif;                                                              
 @color-body: #222;
 @color-link: #ff0011;
 @width-body: 540px;
 @standard-spacing: 20px;
 @wire-border: 2px solid #CCC;
-@letter-spacing-measure: 0.05em;
+@letter-spacing-measure: -0.02em;
 
+
+@font-face {
+	font-family: 'NobileRegular';
+	src: url('/portfolio/media/fonts/nobile-webfont.eot');
+	src: local('☺'), url('/portfolio/media/fonts/nobile-webfont.woff') format('woff'), url('/portfolio/media/fonts/nobile-webfont.ttf') format('truetype'), url('/portfolio/media/fonts/nobile-webfont.svg#webfontJRE3eIdv') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CantarellRegular';
+	src: url('Cantarell-Regular-webfont.eot');
+	src: local('☺'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.woff') format('woff'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.ttf') format('truetype'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.svg#webfontaI1yI6ue') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 
 html {
     overflow-y: scroll;
@@ -45,10 +63,11 @@ body {
         font-family: @font-special;
         font-weight: normal;
         text-transform: uppercase;
+        letter-spacing: @letter-spacing-measure;
     }
 
     h1 { font-size: 45px; line-height: 50px; margin: 25px 0; }
-    h2 { font-size: 32px; line-height: 50px; margin: 25px 0; }
+    h2 { font-size: 30px; line-height: 50px; margin: 25px 0; }
     h3 { font-size: 23px; line-height: 25px; margin: 25px 0; }
     h4 { font-size: 18px; line-height: 25px; margin: 25px 0; }
 
@@ -63,8 +82,8 @@ body {
         
         .top {
                 
-                font-size: 18px;
-                line-height: 45px;
+                font-size: 16px;
+                line-height: 40px;
   
                 header {
                     float: left;
@@ -154,11 +173,19 @@ body {
 
         
         footer {
+            a {
+                color: @color-body;
+                :hover {
+                    color: @color-link;
+                    text-decoration: none;
+                }
+            }
+
+            padding-left: @standard-spacing;
             float: left;
             margin-bottom: 20px;
-            text-align: center;
             text-transform: uppercase;
-            width: @width-body + 2 * @standard-spacing;
+            width: @width-body + @standard-spacing;
             border-left: @wire-border;
             border-right: @wire-border;
             border-bottom: @wire-border;
@@ -175,7 +202,7 @@ body {
         margin: 0;
         padding: 0;
         
-        letter-spacing: @letter-spacing-measure;
+        letter-spacing: @letter-spacing-measure + .04;
 
         li {
             float: left;
