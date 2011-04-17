@@ -13,8 +13,8 @@ TMP_DIR = os.path.join(ROOT_PATH, 'deploy_tmp')
 BACKUPS_DIR = os.path.join(ROOT_PATH, 'backups')
 BACKUP = False
 
-#SITE_ROOT = "/"
-SITE_ROOT = "/portfolio/"
+SITE_ROOT = "/"
+#SITE_ROOT = "/portfolio/"
 SITE_WWW_URL = "http://shackmanpress.com/portfolio/"
 SITE_NAME = "Sam Jacoby"
 SITE_AUTHOR = "Sam Jacoby"

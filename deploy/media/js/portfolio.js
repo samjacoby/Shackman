@@ -1,1 +1,0 @@
-$(document).ready(function(){$("nav > h2 >  a").mouseover(function(){var a=$(this).text().toLowerCase();var b=$("."+a).addClass("highlight")}).mouseout(function(){var a=$(this).text().toLowerCase();var b=$("."+a).removeClass("highlight")})});
