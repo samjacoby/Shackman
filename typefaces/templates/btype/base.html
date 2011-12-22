@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC " -// W3C//DTD XHTML 1. 0 Transitional//EN" " http: //www. w3. org/TR/xhtml1/DTD/xhtml1-transitional. dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/reset/reset-min.css">
+  <link rel="stylesheet" href="{{ STATIC_URL }}btype/css/style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}btype/js/scripts.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Cardo&subset=latin' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="home-links">
+        <a class="link" href="http://shackmanpress.com">Back to Shackman Press</a>
+    </div>
+        <div id="wrapper">
+            <div id="title_container">
+                <img id="title_img" src="{{ STATIC_URL}}btype/img/bixler-title-760.jpg"/>
+            </div>
+            <div id="left_sidebar_container">
+                {% block answer %}
+                {% endblock %}
+            </div>
+            <div id="right_sidebar_container">
+                <div id="score">
+                {% block score %}
+                {% endblock %}
+                </div>
+                {% block choices %}
+                {% endblock %}
+            </div>
+            <div id="game_container">
+                {% block body %}
+                {% endblock %}
+            </div>
+            <div id="footer">
+                {% block footer %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

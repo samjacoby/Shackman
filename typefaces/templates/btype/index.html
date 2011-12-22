@@ -1,0 +1,42 @@
+{% extends "btype/base.html" %}
+{% block title %}
+English Monotype | Shackman Press
+{% endblock %}
+
+{% block answer %}
+<span id="hack" style="visibility:hidden">hold</span>
+{% endblock %}
+
+{% block body %}
+<div class="game_title">
+    <h4>English Monotype from the <a href="http://mwbixler.com">Foundry of Michael & Winifred Bixler</a></h4>
+</div>
+ <div id="game_display"> 
+    {% if typefaces_list %}
+    <h3>Choose {{question}}:</h3>
+    <div id="game_form">
+    <form action="/monotype/" method="post">
+        {% csrf_token %}
+        {% for typeface in typefaces_list %}                                  <input class="letter_image" type="image" name="typeface" value="{{ typeface.typeface.name }}" id="typeface{{ forloop.counter}}" src="{{ STATIC_URL }}btype/type/{{typeface.locator_str}}_{{ file_url }}.jpg"/>{% if forloop.counter == 2 %} <br /> {% endif %}
+        {% endfor %}
+        <input type="hidden" name="question" id="question" value="{{ question }}" />
+    </form>
+    <span id="hint" class="link">(a hint for the weary)</span>
+    <span id="hint" class="link"> </span>
+    </div>
+    {% else %}
+        <p>Sorry, no typefaces were retrieved as something has gone horribly awry.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block footer %}
+<div class="small">The images here are taken from <em>Miscellaneous Monotype Borders and Ornaments</em>, printed and published by <a href="http://mwbixler.com">Michael and Winifred Bixler</a> (Skaneateles, New York, 1995) and from a broadside printed by the  same, whose title appears at the top of this page. Many thanks to <a href="http://katranpress.com">Kat Ran Press</a> for lending us the book.</div>
+</div>
+{% endblock %}   
+    
+{% block score %}
+    <span id="number_correct"></span> <span id="number_tried"></span>
+{% endblock %}
+
+
